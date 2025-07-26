@@ -93,27 +93,3 @@ module.exports = {
         }
     },
 };
-
-// Function to split a string into chunks, respecting newline characters
-function chunkStringByLines(str, maxLength) {
-    const lines = str.split('\n');
-    const chunks = [];
-    let currentChunk = '';
-
-    for (const line of lines) {
-        const lineWithNewline = line + '\n';
-
-        if (currentChunk.length + lineWithNewline.length <= maxLength - 6) { // Leave space for ```\n and ```
-            currentChunk += lineWithNewline;
-        } else {
-            chunks.push(currentChunk);
-            currentChunk = lineWithNewline;
-        }
-    }
-
-    if (currentChunk) {
-        chunks.push(currentChunk);
-    }
-
-    return chunks;
-}
