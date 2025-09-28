@@ -19,8 +19,6 @@ client.once('ready', () => {
     activities: [{ name: `Garry's Mod`, type: ActivityType.Playing }],
     status: 'online',
   });
-  // Remove this line
-  // require('./events/licenseCheck.js').execute(client);
   console.log('Ready!');
 });
 
@@ -32,10 +30,6 @@ const commandFolders = fs.readdirSync('./src/commands');
   for (file of functions) {
     require(`./functions/${file}`)(client);
   }
-  // Remove this line
-  // client.handleEvents(eventFiles, './src/events');
-  
-  // Keep the manual event registration
   const eventsPath = path.join(__dirname, 'events');
   const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
   
